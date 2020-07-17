@@ -1,6 +1,10 @@
 ### Canadian Tire Customer Service Assistant
 Users canuse this website to store notes write rainchecks and more
+<p align="center">
+  <img src="https://canadiantire.scene7.com/is/image/CanadianTire/CT2016_IconLogo_SmlKey?scl=1&fmt=png-alpha" alt="ct-logo">
+  </p>
 
+  
 ### `npm start`
 
 Runs the app in the development mode.<br />
