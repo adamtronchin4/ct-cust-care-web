@@ -5,7 +5,7 @@
 </div>
 
 ## Front-End Server is deployed with firebase
-Follow this link: <a target="_blank" href="https://ct-cust-care.web.app">Firebase Site</a>
+Follow this link: https://ct-cust-care.web.app
 
 <hr class="rounded">
 
