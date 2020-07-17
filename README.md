@@ -10,12 +10,6 @@ Follow this link: https://ct-cust-care.web.app
 
 
 <hr class="rounded">
-<style>  
-hr.rounded {
-  border-top: 8px solid #bbb;
-  border-radius: 5px;
-}
-</style>
 
 ##### `npm start`
 
