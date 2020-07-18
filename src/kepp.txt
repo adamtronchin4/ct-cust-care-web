@@ -3,3 +3,12 @@
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon" or png
     }
+
+
+<NavDropdown title="Noting" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#action/3.1">Call Back</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">Workers Notes</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">To Do List</NavDropdown.Item>
+                    {/* <NavDropdown.Divider />
+                    <NavDropdown.Item href="#action/3.4">Chat Server</NavDropdown.Item> */}
+                </NavDropdown>
