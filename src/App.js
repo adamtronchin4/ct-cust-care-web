@@ -1,8 +1,7 @@
 import React,{Component} from 'react';
-import Auth from '../src/auth/Auth'
 import './App.css';
-// import logo1 from './logo1.png';
-// import {Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap'
+ import logo1 from './logo1.png';
+ import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'
 
 
 class App extends Component {
@@ -17,7 +16,8 @@ class App extends Component {
         firstName: "Joe",
         userId: 1976
       }
-    ]
+    ],
+    showInfo: false
   }
 
   switchNameHandler = (name) =>{
@@ -35,10 +35,24 @@ class App extends Component {
     })
   }
 
+  toggleListHandler = () => {
+    const doesShow = this.state.showInfo;
+    this.setState( { showInfo: !doesShow } );
+  }
+
   render () {
+
+    let info = null
+
+    if(this.state.showInfo){
+      info = (
+        <p>{this.state.info[0].firstName}</p>
+      )
+    }
+
     return (
       <div className="App">
-        {/* <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg">
           <img src={logo1} className="" alt="logo" height="40px" width="40px"/>
           <Navbar.Brand>CT Customer Care Portal</Navbar.Brand>
           <Navbar.Toggle aria-controls="CT Customer Care" />
@@ -55,13 +69,11 @@ class App extends Component {
               <Button variant="outline-success">Search</Button>
             </Form>
           </Navbar.Collapse>
-        </Navbar> */}
+        </Navbar>
   
         <br/>
-        <button className="btn btn-primary" onClick={() => this.switchNameHandler("Max")}>Change</button>
-
-        <Auth firstName={this.state.info[1].firstName}/>
-
+        <button className="btn btn-primary" onClick={this.toggleListHandler}>Toggle List</button>
+        {info}
       </div>
     );
   }
