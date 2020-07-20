@@ -55,7 +55,9 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
         <Navbar bg="light" expand="lg">
+          <Link to={{pathname: "/"}} style={{textDecoration: "none", color: "black"}}>
           <img src={logo1} className="" alt="logo" height="40px" width="40px"/>
+          </Link>
           <Navbar.Brand>CT Customer Care Portal</Navbar.Brand>
           <Navbar.Toggle aria-controls="CT Customer Care" />
           <Navbar.Collapse id="basic-navbar-nav">
