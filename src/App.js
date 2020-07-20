@@ -1,11 +1,12 @@
 import React,{Component} from 'react';
 import './App.css';
- import logo1 from './logo1.png';
- import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'
-
+import logo1 from './logo1.png';
+import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'
+import {BrowserRouter, Link} from 'react-router-dom'
+import ViewNotesPage from './components/myNotes/View'
+import ViewToDoPage from './components/toDo/View'
 
 class App extends Component {
-
   state = {
     info: [
       {
@@ -41,7 +42,7 @@ class App extends Component {
   }
 
   render () {
-
+// eslint-disable-next-line
     let info = null
 
     if(this.state.showInfo){
@@ -52,17 +53,28 @@ class App extends Component {
 
     return (
       <div className="App">
+        <BrowserRouter>
         <Navbar bg="light" expand="lg">
           <img src={logo1} className="" alt="logo" height="40px" width="40px"/>
           <Navbar.Brand>CT Customer Care Portal</Navbar.Brand>
           <Navbar.Toggle aria-controls="CT Customer Care" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-                <Nav.Link href="#">Call Back</Nav.Link>
-                <Nav.Link href="#">Rain Checks</Nav.Link>
-                <Nav.Link href="#">To-Do Lists</Nav.Link>
-                <Nav.Link href="#">My Notes</Nav.Link>
-                <Nav.Link href="#">Group Notes</Nav.Link>
+                <Link to={{pathname:"/callBack/view"}}>
+                  <Nav.Link href="/callBack/view">Call Back</Nav.Link>
+                </Link>
+                <Link to={{pathname:"/rainCheck/view"}}>
+                  <Nav.Link href="/rainCheck/view">Rain Checks</Nav.Link>
+                </Link>
+                <Link to={{pathname:"/toDo/view"}}>
+                  <Nav.Link href="/toDo/view">To-Do Lists</Nav.Link>
+                </Link>
+                <Link to={{pathname:"/myNotes/view"}}>
+                  <Nav.Link href="/myNotes/view">My Notes</Nav.Link>
+                </Link>
+                <Link to={{pathname:"/groupNotes/view"}}>
+                  <Nav.Link href="/groupNotes/view">Group Notes</Nav.Link>
+                </Link>
             </Nav>
             <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -70,13 +82,15 @@ class App extends Component {
             </Form>
           </Navbar.Collapse>
         </Navbar>
-  
+        <ViewNotesPage></ViewNotesPage>
+        <ViewToDoPage></ViewToDoPage>
+        </BrowserRouter>
         <br/>
-        <button className="btn btn-primary" onClick={this.toggleListHandler}>Toggle List</button>
-        {info}
       </div>
     );
   }
 }
+
+
 
 export default App;
