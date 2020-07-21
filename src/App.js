@@ -42,8 +42,14 @@ class App extends Component {
   }
 
   render () {
-// eslint-disable-next-line
+
+    // eslint-disable-next-line
     let info = null
+
+    window.addEventListener('beforeunload', function (e) {
+      e.preventDefault();
+      e.returnValue = '';
+    });
 
     if(this.state.showInfo){
       info = (
@@ -92,7 +98,5 @@ class App extends Component {
     );
   }
 }
-
-
 
 export default App;
