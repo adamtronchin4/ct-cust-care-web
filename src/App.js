@@ -7,6 +7,7 @@ import ViewNotesPage from './components/myNotes/View'
 import ViewToDoPage from './components/toDo/View'
 
 class App extends Component {
+
   state = {
     info: [
       {
@@ -18,7 +19,8 @@ class App extends Component {
         userId: 1976
       }
     ],
-    showInfo: false
+    showInfo: false,
+    messasge: ""
   }
 
   switchNameHandler = (name) =>{
