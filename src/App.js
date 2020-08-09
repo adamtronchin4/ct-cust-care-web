@@ -5,55 +5,54 @@ import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'
 import {BrowserRouter, Link} from 'react-router-dom'
 import ViewNotesPage from './components/myNotes/View'
 import ViewToDoPage from './components/toDo/View'
+import LoginPage from './components/auth/Login'
 
 class App extends Component {
   state = {
-    info: [
-      {
-        firstName: "Adam",
-        userId: 1872
-      },
-      {
-        firstName: "Joe",
-        userId: 1976
-      }
-    ],
-    showInfo: false
+    authCredentials:{
+      userId: null,
+      password: null
+    },
+    loginState: false
   }
 
-  switchNameHandler = (name) =>{
-    this.setState({
-      info: [
-        {
-          firstName: name,
-          userId: 1872
-        },
-        {
-          firstName: "Joe",
-          userId: 1976
-        }
-      ]
-    })
-  }
+  // switchNameHandler = (name) =>{
+  //   this.setState({
+  //     info: [
+  //       {
+  //         firstName: name,
+  //         userId: 1872
+  //       },
+  //       {
+  //         firstName: "Joe",
+  //         userId: 1976
+  //       }
+  //     ]
+  //   })
+  // }
 
   toggleListHandler = () => {
     const doesShow = this.state.showInfo;
     this.setState( { showInfo: !doesShow } );
   }
 
+  loginHandler = (user, pass) => { 
+    console.log(user +" "+ pass)
+  }
+
   render () {
 
     // eslint-disable-next-line
-    let info = null
+    let authButton = null
 
     window.addEventListener('beforeunload', function (e) {
       e.preventDefault();
       e.returnValue = '';
     });
 
-    if(this.state.showInfo){
-      info = (
-        <p>{this.state.info[0].firstName}</p>
+    if(!this.state.loginState){
+      authButton = (
+        <Button variant="outline-warning">Login</Button>
       )
     }
 
@@ -83,6 +82,7 @@ class App extends Component {
                 <Link to={{pathname:"/groupNotes/view"}}>
                   <Nav.Link href="/groupNotes/view">Group Notes</Nav.Link>
                 </Link>
+                <Link to={{pathname:"/auth/login"}}>{authButton}</Link>
             </Nav>
             <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -92,6 +92,7 @@ class App extends Component {
         </Navbar>
         <ViewNotesPage></ViewNotesPage>
         <ViewToDoPage></ViewToDoPage>
+        <LoginPage loginHandler={this.loginHandler}></LoginPage>
         </BrowserRouter>
         <br/>
       </div>
